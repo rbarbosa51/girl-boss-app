@@ -8,13 +8,13 @@ module.exports = {
     './src/**/*.{ts,tsx}',
 	],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
+    // container: {
+    //   center: true,
+    //   padding: "2rem",
+    //   screens: {
+    //     "2xl": "1400px",
+    //   },
+    // },
     extend: {
       backgroundImage: {
         'lightPattern': "url('/heartLight.svg')",
