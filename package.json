@@ -4,11 +4,10 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "install": "cd server; npm i; cd ..; cd client; npm i",
+    "build": "cd client; npm run build",
+    "start": "node server/server.js"
   },
   "author": "Rafael Barbosa",
-  "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^8.2.1"
-  }
+  "license": "ISC"
 }
