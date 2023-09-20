@@ -16,7 +16,15 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'lightPattern': "url('/heartLight.svg')",
+        "darkPattern": "url('/heartDark.svg')"
+      },
+      fontFamily: {
+        "Baskervville": ['Baskervville', 'serif']
+      },
       colors: {
+        pinkPrimary: "#ebadad",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
