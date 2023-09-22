@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {Layout, Error, Dashboard, Kanban, Scheduler} from '@/pages'
+import {Layout, Error, Dashboard, Kanban, Scheduler, Resources} from '@/pages'
 import '@/index.css'
 
 const router = createBrowserRouter([
@@ -21,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: 'scheduler',
         element: <Scheduler />
+      },
+      {
+        path: 'resources',
+        element: <Resources />
       }
     ]
   }

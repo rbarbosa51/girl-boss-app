@@ -3,7 +3,7 @@ import { Card} from "@/components/ui/card";
 import {BsLightbulb} from 'react-icons/bs';
 import { Outlet, NavLink} from "react-router-dom";
 import {NavigationMenu, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle} from "@/components/ui/navigation-menu"
-import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs';
+
 
 export default function Layout() {
     const htmlElement = document.querySelector('html')
@@ -19,7 +19,7 @@ export default function Layout() {
               </div>
             </Card>
             
-            <NavigationMenu className="flex justify-center mt-4 gap-8 mx-8">
+            <NavigationMenu className="flex justify-center mt-4 gap-4 mx-8">
                 <NavigationMenuItem className={navigationMenuTriggerStyle()}>
                     <NavLink to={'/'}>
                         <NavigationMenuLink>
@@ -38,6 +38,13 @@ export default function Layout() {
                     <NavLink to={'/scheduler'}>
                         <NavigationMenuLink>
                             Scheduler
+                        </NavigationMenuLink>
+                    </NavLink>
+                </NavigationMenuItem>
+                <NavigationMenuItem className={navigationMenuTriggerStyle()}>
+                    <NavLink to={'/resources'}>
+                        <NavigationMenuLink>
+                            Resources
                         </NavigationMenuLink>
                     </NavLink>
                 </NavigationMenuItem>
