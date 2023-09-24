@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import path from 'path'
+import path from 'path';
+import htmlMinifier from 'vite-plugin-html-minifier';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    htmlMinifier({
+      minify: true
+    })
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, './src')
