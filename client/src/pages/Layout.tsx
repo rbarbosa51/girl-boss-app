@@ -48,6 +48,14 @@ export default function Layout() {
                         </NavigationMenuLink>
                     </NavLink>
                 </NavigationMenuItem>
+                {/* Delete in future */}
+                <NavigationMenuItem className={navigationMenuTriggerStyle()}>
+                    <NavLink to={'/'}>
+                        <NavigationMenuLink>
+                            Intro
+                        </NavigationMenuLink>
+                    </NavLink>
+                </NavigationMenuItem>
             </NavigationMenu>
             
             <Card className="backdrop-blur-lg bg-white/60 dark:bg-black/40 drop-shadow-xl mx-8 mt-4">
