@@ -21,28 +21,28 @@ export default function Layout() {
             
             <NavigationMenu className="flex justify-center mt-4 gap-4 mx-8">
                 <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-                    <NavLink to={'/'}>
+                    <NavLink to={'/dashboard'}>
                         <NavigationMenuLink>
                             Home
                         </NavigationMenuLink>
                     </NavLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-                    <NavLink to={'/kanban'}>
+                    <NavLink to={'/dashboard/kanban'}>
                         <NavigationMenuLink>
                             Task Board
                         </NavigationMenuLink>
                     </NavLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-                    <NavLink to={'/scheduler'}>
+                    <NavLink to={'/dashboard/scheduler'}>
                         <NavigationMenuLink>
                             Scheduler
                         </NavigationMenuLink>
                     </NavLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem className={navigationMenuTriggerStyle()}>
-                    <NavLink to={'/resources'}>
+                    <NavLink to={'/dashboard/resources'}>
                         <NavigationMenuLink>
                             Resources
                         </NavigationMenuLink>
