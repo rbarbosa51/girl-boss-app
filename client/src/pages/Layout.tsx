@@ -3,6 +3,7 @@ import { Card} from "@/components/ui/card";
 import {BsLightbulb} from 'react-icons/bs';
 import { Outlet, NavLink} from "react-router-dom";
 import {NavigationMenu, NavigationMenuItem, NavigationMenuLink, navigationMenuTriggerStyle} from "@/components/ui/navigation-menu"
+import { Separator } from "@/components/ui/separator";
 import DarkMode from "@/components/DarkMode";
 
 export default function Layout() {
@@ -19,7 +20,7 @@ export default function Layout() {
                 <DarkMode />
               </div>
             </Card>
-            
+            <Separator className='w-[90%] mx-auto mt-2 mb-4 bg-slate-400'/>
             <NavigationMenu className="flex justify-center mt-4 gap-4 mx-8">
                 <NavigationMenuItem className={navigationMenuTriggerStyle()}>
                     <NavLink to={'/dashboard'}>
