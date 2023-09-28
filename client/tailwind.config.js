@@ -8,13 +8,7 @@ module.exports = {
     './src/**/*.{ts,tsx}',
 	],
   theme: {
-    // container: {
-    //   center: true,
-    //   padding: "2rem",
-    //   screens: {
-    //     "2xl": "1400px",
-    //   },
-    // },
+    
     extend: {
       backgroundImage: {
         'lightPattern': "url('/heartLight.svg')",
@@ -25,6 +19,8 @@ module.exports = {
       },
       colors: {
         pinkPrimary: "#ebadad",
+        lightPink: '#fff0f0',
+        darkPink: '#2b1a1a',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
