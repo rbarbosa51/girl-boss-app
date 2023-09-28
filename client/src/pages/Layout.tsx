@@ -3,9 +3,16 @@ import { Outlet, useNavigate} from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import DarkMode from "@/components/DarkMode";
+import { useEffect } from "react";
 
 export default function Layout() {
     const navigate = useNavigate()
+    useEffect(() => {
+        //Start by scrolling to the top
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0;
+
+    }, [])
     return (
         
         <div className="min-h-screen bg-lightPink dark:bg-darkPink opacity-80 px-4 py-2" >
