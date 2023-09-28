@@ -1,11 +1,11 @@
 import { Card} from "@/components/ui/card";
-import { Outlet, NavLink} from "react-router-dom";
-import {NavigationMenu, NavigationMenuItem} from "@/components/ui/navigation-menu"
+import { Outlet, NavLink, useNavigate} from "react-router-dom";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
 import DarkMode from "@/components/DarkMode";
 
 export default function Layout() {
-    
+    const navigate = useNavigate()
     return (
         <>
         <div className="h-screen bg-lightPattern dark:bg-darkPattern p-4 opacity-80" >
@@ -19,35 +19,16 @@ export default function Layout() {
               </div>
             </Card>
             <Separator className='w-[90%] mx-auto mt-2 mb-4 bg-slate-400'/>
+            <Tabs defaultValue='home' className="ml-8">
+                <TabsList className="backdrop-blur-sm bg-white/40 dark:bg-black/40 drop-shadow-xl">
+                    <TabsTrigger className="m-2" value="home" onClick={() => navigate('/dashboard')}>Home</TabsTrigger>
+                    <TabsTrigger className="m-2" value="kanban"  onClick={() => navigate('/dashboard/kanban')}>Task Board</TabsTrigger>
+                    <TabsTrigger className="m-2" value="scheduler" onClick={() => navigate('/dashboard/scheduler')}>Scheduler</TabsTrigger>
+                    <TabsTrigger className="m-2" value="resources" onClick={() => navigate('/dashboard/resources')}>Resources</TabsTrigger>
+                    <TabsTrigger className="m-2" value="intro" onClick={() => navigate('/')}>Intro</TabsTrigger>
+                </TabsList>
+            </Tabs>
             
-            <NavigationMenu className="flex justify-center mt-4 gap-1 mx-8">
-                {/* className={navigationMenuTriggerStyle()  */}
-                <NavigationMenuItem className={"list-none rounded-md backdrop-blur-sm bg-white/40 dark:bg-black/40 drop-shadow-xl p-2 px-4" }>
-                    <NavLink to={'/dashboard'}>
-                        Home
-                    </NavLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem className={"list-none rounded-md backdrop-blur-sm bg-white/40 dark:bg-black/40 drop-shadow-xl p-2 px-4" }>
-                    <NavLink to={'/dashboard/kanban'}>
-                        Task Board
-                    </NavLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem className={"list-none rounded-md backdrop-blur-sm bg-white/40 dark:bg-black/40 drop-shadow-xl p-2 px-4" }>
-                    <NavLink to={'/dashboard/scheduler'}>
-                        Scheduler
-                    </NavLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem className={"list-none rounded-md backdrop-blur-sm bg-white/40 dark:bg-black/40 drop-shadow-xl p-2 px-4" }>
-                    <NavLink to={'/dashboard/resources'}>
-                        Resources
-                    </NavLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem className={"list-none rounded-md backdrop-blur-sm bg-white/40 dark:bg-black/40 drop-shadow-xl p-2 px-4" }>
-                    <NavLink to={'/'}>
-                        Intro
-                    </NavLink>
-                </NavigationMenuItem>
-            </NavigationMenu>
             <Separator className='w-[90%] mx-auto my-4 bg-slate-400'/>
 
             <Card className="flex flex-col backdrop-blur-sm bg-white/20 dark:bg-black/40 drop-shadow-xl mx-8 mt-4">
