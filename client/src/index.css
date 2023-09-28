@@ -78,4 +78,7 @@
     -webkit-text-stroke: 1px rgb(254,188,188);
     text-shadow: 2px 2px 5px black;
   }
+  .glassCard {
+    @apply flex flex-col backdrop-blur-sm bg-white/20 dark:bg-black/40 drop-shadow-xl;
+  }
 }
