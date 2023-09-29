@@ -36,8 +36,8 @@ const router = createBrowserRouter([
     ]
   }
 ])
-//registerLicense(import.meta.env.VITE_SYNCFUSION_KEY);
-registerLicense('Ngo9BigBOggjHTQxAR8/V1NHaF5cXmVCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdgWXZceXRXQmJfV0x0X0c=')
+registerLicense(import.meta.env.VITE_SYNCFUSION_KEY);
+
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

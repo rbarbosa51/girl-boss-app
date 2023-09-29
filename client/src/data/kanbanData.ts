@@ -1,8 +1,17 @@
-
-export let data = [
-    { Id: 1, Status: 'Open', Summary: 'Analyze the new requirements gathered from the customer.', Type: 'Story', Priority: 'Low', Tags: 'Analyze,Customer', Estimate: 3.5, Assignee: 'Nancy Davloio', RankId: 1 },
-    { Id: 2, Status: 'InProgress', Summary: 'Fix the issues reported in the IE browser.', Type: 'Bug', Priority: 'Release Breaker', Tags: 'IE', Estimate: 2.5, Assignee: 'Janet Leverling', RankId: 2  },
-    { Id: 3, Status: 'Testing', Summary: 'Fix the issues reported by the customer.', Type: 'Bug', Priority: 'Low', Tags: 'Customer', Estimate: '3.5', Assignee: 'Steven walker', RankId: 1 },
-    { Id: 4, Status: 'Close', Summary: 'Arrange a web meeting with the customer to get the login page requirements.', Type: 'Others', Priority: 'Low', Tags: 'Meeting', Estimate: 2, Assignee: 'Michael Suyama', RankId: 1 },
-    { Id: 5, Status: 'Validate', Summary: 'Validate new requirements', Type: 'Improvement', Priority: 'Low', Tags: 'Validation', Estimate: 1.5, Assignee: 'Robert King', RankId: 1 }
+export type dataType = {
+    Id: number
+    Status: 'ToDo' | 'Started' | 'InProgress' | 'Done'
+    Summary: string
+}
+export let data: dataType[] = [
+    { Id: 1, Status: 'ToDo', Summary: 'This is your first Girl Boss task.' },
+    { Id: 2, Status: 'Started', Summary: 'I started doing something.',  },
+    { Id: 3, Status: 'InProgress', Summary: 'Fixed an issued that was bothering me.',  },
+    { Id: 4, Status: 'Started', Summary: 'Overwrite this', },
+    { Id: 5, Status: 'Done', Summary: 'This is a completed task.',  },
+    { Id: 6, Status: 'ToDo', Summary: 'Write your task here.',  },
+    { Id: 7, Status: 'ToDo', Summary: 'Write your task here.',  },
+    { Id: 8, Status: 'ToDo', Summary: 'Write your task here.',  },
+    { Id: 9, Status: 'ToDo', Summary: 'Write your task here.',  },
+    { Id: 10, Status: 'ToDo', Summary: 'Write your task here.',  },
 ];
