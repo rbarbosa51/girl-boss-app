@@ -2,6 +2,7 @@ import './Scheduler.css';
 import { ScheduleComponent, Day, Week, WorkWeek, Month, ViewsDirective, ViewDirective, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { useRef } from 'react';
 
 export default function Scheduler() {
     const data = [
@@ -12,7 +13,12 @@ export default function Scheduler() {
           EndTime: new Date(2023,10,15,12, 30)
         },
       ];
-
+      const scheduleObj = useRef<ScheduleComponent>(null)
+      const doSomething = () => {
+        data[0].Subject = "New Task Name  HOOOWOWO!!!"
+        scheduleObj.current?.refresh()
+        console.log(data);
+      }
     return (
         <Card className='p-4 bg-red-200/40 rounded-lg shadow-md'>
             <h1 className="text-3xl font-Baskervville text-center drop-shadow-md">Scheduler</h1>
@@ -29,7 +35,7 @@ export default function Scheduler() {
             </ul>
 
             {/* eventSettings={{dataSource: data,}} */}
-            <ScheduleComponent  eventSettings={{dataSource: data,}} >
+            <ScheduleComponent ref={scheduleObj} eventSettings={{dataSource: data,}} >
                 <ViewsDirective>
                   <ViewDirective option='Day' startHour='09:00' endHour='17:00'/>
                   <ViewDirective option='WorkWeek' startHour='09:00' endHour='17:00'/>
@@ -38,6 +44,7 @@ export default function Scheduler() {
                 </ViewsDirective>
                 <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
             </ScheduleComponent>
+            <button onClick={() => doSomething()}>CLick me</button>
         </Card>
     )
 }
