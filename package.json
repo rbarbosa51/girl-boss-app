@@ -9,5 +9,8 @@
     "start": "node server/server.js"
   },
   "author": "Rafael Barbosa",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    
+  }
 }

@@ -16,6 +16,8 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",
     "@radix-ui/react-tabs": "^1.0.4",
+    "@syncfusion/ej2-base": "^23.1.38",
+    "@syncfusion/ej2-react-kanban": "^23.1.36",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
