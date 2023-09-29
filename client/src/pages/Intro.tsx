@@ -9,7 +9,7 @@ export default function Intro() {
     const navigate = useNavigate();
     useEffect(() => {
         const tl = gsap.timeline({
-            onComplete: () => navigate('/dashboard'),
+            //onComplete: () => navigate('/dashboard'),
             scrollTrigger: {
                 trigger: box.current,
                 // markers: true,
@@ -32,7 +32,9 @@ export default function Intro() {
             <div className='h-screen bg-purple-300'>
                 <div ref={box} className="w-[15%] aspect-square bg-red-800"></div>
             </div>
-            
+            <div className='h-screen bg-purple-300'>
+                <button onClick={() => {navigate('/dashboard')}}>Go Dashboard</button>
+            </div>
         </div>
 
     )
