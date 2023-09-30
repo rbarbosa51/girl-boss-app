@@ -1,4 +1,3 @@
-import type {ResourceType} from '@/data/resourcesData'
 import {resourceData} from '@/data/resourcesData'
 import {Table, TableBody, TableCell, TableCaption, TableHead, TableHeader, TableRow} from '@/components/ui/table';
 import { Card } from '@/components/ui/card';
