@@ -59,7 +59,7 @@ function Kanban() {
         <div className='flex items-center justify-center gap-4'>
           <Label htmlFor="status" className="">Status</Label>
           <div>
-            <select id='select' name='select'>
+            <select id='select' name='select' className='dark:text-slate-600'>
               <optgroup label='Task Status'>
                 <option value={'ToDo'}>To Do</option>
                 <option value="Started">Started</option>
@@ -78,18 +78,3 @@ function Kanban() {
 
 export default Kanban
 
-
-/*
-
-<Select id='status'>
-                <SelectTrigger>
-                    <SelectValue placeholder="Select a Task Status" />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectItem value="ToDo">To Do</SelectItem>
-                    <SelectItem value="Started">Started</SelectItem>
-                    <SelectItem value="InProgress">In Progress</SelectItem>
-                    <SelectItem value="Done">Done</SelectItem>
-                </SelectContent>
-            </Select>
-*/
