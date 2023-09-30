@@ -31,7 +31,7 @@ function Kanban() {
   return (
     
     <Card className='p-4 bg-red-200/40 rounded-lg shadow-md'>
-      <h1 className="text-3xl font-Baskervville text-center drop-shadow-md">Task Board</h1>
+      <h1 className="text-3xl text-center drop-shadow-md">Task Board</h1>
       <p className='text-center indent-4 mb-2 mx-4'>
         This Task Board (Kanban) board will help you organize your tasks based on completion status. This can be extremely useful in organizing your ideas and relieve stress.
       </p>
