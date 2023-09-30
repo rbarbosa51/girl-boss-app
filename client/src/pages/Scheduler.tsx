@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { useRef } from 'react';
 import {useStorageState} from 'react-use-storage-state';
-import {AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger} from "@/components/ui/alert-dialog"
+
 import { Button } from '@/components/ui/button';
 
 export default function Scheduler() {
@@ -48,21 +48,8 @@ export default function Scheduler() {
                 <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
             </ScheduleComponent>
             <div className='flex justify-center mt-4'>
-              
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
-                  <Button variant={"outline"} onClick={() => saveData()}>Save Data</Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>Saved!</AlertDialogTitle>
-                    <AlertDialogDescription>Your schedule has been saved</AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>OK</AlertDialogCancel>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
+            <Button variant={"outline"} onClick={() => saveData()}>Save Data</Button>
+             
             </div>
             
         </Card>

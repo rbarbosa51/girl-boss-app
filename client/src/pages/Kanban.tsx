@@ -8,7 +8,7 @@ import type {dataType} from '@/data/kanbanData'
 import { Button } from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import { Label } from "@/components/ui/label";
-import {AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger} from "@/components/ui/alert-dialog"
+
 
 function Kanban() {
   const [saved, setSaved] = useStorageState('Kanban', data)
@@ -72,20 +72,8 @@ function Kanban() {
         <div className='flex flex-col gap-2'>
           <Button variant={"outline"} className='mx-auto' onClick={() => {addData()}}>Add Task</Button>
           <Separator className='w-[90%] mx-auto mt-1 bg-slate-400' />
-          <AlertDialog>
-            <AlertDialogTrigger asChild>
-              <Button variant={'outline'} className='mx-auto' onClick={() => {saveData()}}>Save Data</Button>
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-              <AlertDialogHeader>
-                <AlertDialogTitle>Saved!</AlertDialogTitle>
-                <AlertDialogDescription>Your tasks have been saved</AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>OK</AlertDialogCancel>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
+          <Button variant={'outline'} className='mx-auto' onClick={() => {saveData()}}>Save Data</Button>
+          
         </div>
       </div>
 
