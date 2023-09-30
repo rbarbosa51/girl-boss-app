@@ -4,9 +4,17 @@ import {data} from '@/data/kanbanData';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 
+import {useState} from 'react';
+import type {dataType} from '@/data/kanbanData'
+import { Button } from '@/components/ui/button';
 
 function Kanban() {
-
+  const [sData, setSData] = useState<dataType[]>(data);
+  const addData = (text:string) => {
+    const newData:dataType = {Id: sData.length + 1, Status: 'InProgress', Summary: text}
+    setSData(aData => [...aData,newData])
+    console.log(sData);
+  }
   return (
     
     <Card className='p-4 bg-red-200/40 rounded-lg shadow-md'>
@@ -20,7 +28,7 @@ function Kanban() {
         <li><strong>Double click</strong> a task to edit it.</li>
         <li>On the dialog box, write your task under summary and then click <strong>save</strong>.</li>
       </ul>
-      <KanbanComponent id='kanban' keyField='Status' dataSource={data} cardSettings={{contentField: "Summary", headerField: "Id"}}>
+      <KanbanComponent id='kanban' keyField='Status' dataSource={sData} cardSettings={{contentField: "Summary", headerField: "Id"}}>
         <ColumnsDirective>
           <ColumnDirective headerText='To do' keyField='ToDo' />
           <ColumnDirective headerText='Started' keyField='Started' />
@@ -28,7 +36,7 @@ function Kanban() {
           <ColumnDirective headerText='Done' keyField='Done' />
         </ColumnsDirective>
       </KanbanComponent>
-      
+      <Button onClick={() => addData('Test Success')}>Add Task</Button>
     </Card>
   )
 }
