@@ -3,18 +3,18 @@ import { KanbanComponent, ColumnsDirective, ColumnDirective } from '@syncfusion/
 import {data} from '@/data/kanbanData';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import {useState} from 'react';
+import {useStorageState} from 'react-use-storage-state';
 import type {dataType} from '@/data/kanbanData'
 import { Button } from '@/components/ui/button';
-
 import {Input} from '@/components/ui/input';
 import { Label } from "@/components/ui/label";
 
 
 function Kanban() {
-  const [sData, setSData] = useState<dataType[]>(data);
-  
-
+  const [saved, setSaved] = useStorageState('Kanban', data)
+  const saveData = () => {
+    setSaved([...saved])
+  }
   const addData = () => {
     const selected = document.getElementById('select') as HTMLSelectElement;
     const selectedSummary = document.getElementById('summary') as HTMLInputElement;
@@ -24,8 +24,8 @@ function Kanban() {
       alert("Write a task text")
       return;
     }
-    const newData:dataType = {Id: sData.length + 1, Status: selectedStatus, Summary: textSummary}
-    setSData(aData => [...aData,newData])
+    const newData:dataType = {Id: saved.length + 1, Status: selectedStatus, Summary: textSummary}
+    setSaved(aData => [...aData,newData])
     selectedSummary.value = '';
   }
   return (
@@ -41,7 +41,7 @@ function Kanban() {
         <li><strong>Double click</strong> a task to edit it.</li>
         <li>On the dialog box, write your task under summary and then click <strong>save</strong>.</li>
       </ul>
-      <KanbanComponent id='kanban' keyField='Status' dataSource={sData} cardSettings={{contentField: "Summary", headerField: "Id"}}>
+      <KanbanComponent id='kanban' keyField='Status' dataSource={saved} cardSettings={{contentField: "Summary", headerField: "Id"}}>
         <ColumnsDirective>
           <ColumnDirective headerText='To do' keyField='ToDo' />
           <ColumnDirective headerText='Started' keyField='Started' />
@@ -69,7 +69,11 @@ function Kanban() {
             </select>
           </div>
         </div>
-        <Button variant={"outline"} className='mx-auto' onClick={() => {addData()}}>Add Task</Button>
+        <div className='flex flex-col gap-2'>
+          <Button variant={"outline"} className='mx-auto' onClick={() => {addData()}}>Add Task</Button>
+          <Separator className='w-[90%] mx-auto mt-2 mb-4 bg-slate-400' />
+          <Button variant={'outline'} className='mx-auto' onClick={() => {saveData()}}>Save Data</Button>
+        </div>
       </div>
 
     </Card>
