@@ -20,20 +20,16 @@ export default function Scheduler() {
     const scheduleObj = useRef<ScheduleComponent>(null)
     const saveData = () => {
       scheduleObj.current?.refresh()
-      // scheduleObj.current?.exportToExcel();
-      console.log(initData);
-      console.log(data);
+      //console.log(initData);
+      //console.log(data);
       setData([...data])
     }
     
-
-
     return (
         <Card className='p-4 bg-red-200/40 rounded-lg shadow-md'>
             <h1 className="text-3xl text-center drop-shadow-md">Scheduler</h1>
             <p className='text-center indent-4 mb-2 mx-4'>
               Use this scheduler to organize your tasks. 
-              
             </p>
             <Separator className='w-[90%] mx-auto mt-2 mb-4 bg-slate-400' />
             <ul className='w-[50%] mx-auto list-disc my-2 text-center'>
