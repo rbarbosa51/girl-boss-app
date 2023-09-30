@@ -1,6 +1,7 @@
+
 export type dataType = {
     Id: number
-    Status: 'ToDo' | 'Started' | 'InProgress' | 'Done'
+    Status: string
     Summary: string
 }
 export let data: dataType[] = [
@@ -10,8 +11,4 @@ export let data: dataType[] = [
     { Id: 4, Status: 'Started', Summary: 'Overwrite this', },
     { Id: 5, Status: 'Done', Summary: 'This is a completed task.',  },
     { Id: 6, Status: 'ToDo', Summary: 'Write your task here.',  },
-    { Id: 7, Status: 'ToDo', Summary: 'Write your task here.',  },
-    { Id: 8, Status: 'ToDo', Summary: 'Write your task here.',  },
-    { Id: 9, Status: 'ToDo', Summary: 'Write your task here.',  },
-    { Id: 10, Status: 'ToDo', Summary: 'Write your task here.',  },
 ];

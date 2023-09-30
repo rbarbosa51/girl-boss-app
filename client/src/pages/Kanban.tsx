@@ -3,17 +3,30 @@ import { KanbanComponent, ColumnsDirective, ColumnDirective } from '@syncfusion/
 import {data} from '@/data/kanbanData';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-
 import {useState} from 'react';
 import type {dataType} from '@/data/kanbanData'
 import { Button } from '@/components/ui/button';
 
+import {Input} from '@/components/ui/input';
+import { Label } from "@/components/ui/label";
+
+
 function Kanban() {
   const [sData, setSData] = useState<dataType[]>(data);
-  const addData = (text:string) => {
-    const newData:dataType = {Id: sData.length + 1, Status: 'InProgress', Summary: text}
+  
+
+  const addData = () => {
+    const selected = document.getElementById('select') as HTMLSelectElement;
+    const selectedSummary = document.getElementById('summary') as HTMLInputElement;
+    const selectedStatus = selected.value;
+    const textSummary = selectedSummary.value;
+    if (textSummary === '') {
+      alert("Write a task text")
+      return;
+    }
+    const newData:dataType = {Id: sData.length + 1, Status: selectedStatus, Summary: textSummary}
     setSData(aData => [...aData,newData])
-    console.log(sData);
+    selectedSummary.value = '';
   }
   return (
     
@@ -36,9 +49,47 @@ function Kanban() {
           <ColumnDirective headerText='Done' keyField='Done' />
         </ColumnsDirective>
       </KanbanComponent>
-      <Button onClick={() => addData('Test Success')}>Add Task</Button>
+      <div className="my-4 flex flex-col gap-2">
+        <div className='flex items-center justify-center gap-4'>
+        <Label htmlFor="summary" className="">
+            Summary
+        </Label>
+        <Input id="summary"  placeholder='Write task here' className="w-[30%]" />
+        </div>
+        <div className='flex items-center justify-center gap-4'>
+          <Label htmlFor="status" className="">Status</Label>
+          <div>
+            <select id='select' name='select'>
+              <optgroup label='Task Status'>
+                <option value={'ToDo'}>To Do</option>
+                <option value="Started">Started</option>
+                <option value="InProgress">In Progress</option>
+                <option value="Done">Done</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <Button className='mx-auto' onClick={() => {addData()}}>Add Task</Button>
+      </div>
+
     </Card>
   )
 }
 
 export default Kanban
+
+
+/*
+
+<Select id='status'>
+                <SelectTrigger>
+                    <SelectValue placeholder="Select a Task Status" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="ToDo">To Do</SelectItem>
+                    <SelectItem value="Started">Started</SelectItem>
+                    <SelectItem value="InProgress">In Progress</SelectItem>
+                    <SelectItem value="Done">Done</SelectItem>
+                </SelectContent>
+            </Select>
+*/
