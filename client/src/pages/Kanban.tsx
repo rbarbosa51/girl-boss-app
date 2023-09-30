@@ -69,7 +69,7 @@ function Kanban() {
             </select>
           </div>
         </div>
-        <Button className='mx-auto' onClick={() => {addData()}}>Add Task</Button>
+        <Button variant={"outline"} className='mx-auto' onClick={() => {addData()}}>Add Task</Button>
       </div>
 
     </Card>

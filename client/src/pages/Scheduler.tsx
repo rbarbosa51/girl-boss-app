@@ -4,6 +4,8 @@ import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { useRef } from 'react';
 import {useStorageState} from 'react-use-storage-state';
+import {AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger} from "@/components/ui/alert-dialog"
+import { Button } from '@/components/ui/button';
 
 export default function Scheduler() {
     const initData = [
@@ -16,8 +18,7 @@ export default function Scheduler() {
     ];
     const [data, setData] = useStorageState('Data', initData)
     const scheduleObj = useRef<ScheduleComponent>(null)
-    const doSomething = () => {
-      //initData[0].Subject = "New Task Name  HOOOWOWO!!!"
+    const saveData = () => {
       scheduleObj.current?.refresh()
       // scheduleObj.current?.exportToExcel();
       console.log(initData);
@@ -25,41 +26,22 @@ export default function Scheduler() {
       setData([...data])
     }
     
-    
-
-//     const onActionBegin = (args: any) => {
-//       if (args.requestType === 'toolbarItemRendering') {
-//           let exportItem = {
-//               align: 'Right', showTextOn: 'Both', prefixIcon: 'e-icon-schedule-excel-export',
-//               text: 'Excel Export', cssClass: 'e-excel-export', click: onExportClick
-//           };
-//           args.items.push(exportItem);
-//       }
-//   }
-//   const onExportClick = () => {
-//     let exportValues = {
-//       fields: ['Id', 'Subject', 'StartTime', 'EndTime', 'Location']
-//   };
-//     scheduleObj.current?.exportToExcel(exportValues);
-// }
 
 
     return (
         <Card className='p-4 bg-red-200/40 rounded-lg shadow-md'>
-            <h1 className="text-3xl font-Baskervville text-center drop-shadow-md">Scheduler</h1>
+            <h1 className="text-3xl text-center drop-shadow-md">Scheduler</h1>
             <p className='text-center indent-4 mb-2 mx-4'>
               Use this scheduler to organize your tasks. 
               
             </p>
             <Separator className='w-[90%] mx-auto mt-2 mb-4 bg-slate-400' />
             <ul className='w-[50%] mx-auto list-disc my-2 text-center'>
-                <li><strong>Click</strong> on a timeframe (Day, Week, Month)</li>
-                <li><strong>Click</strong> on a time block</li>
+                <li><strong>Click</strong> on a timeframe (Day, Week, Month). Then <strong>Click</strong> on a time block</li>
                 <li>On the new dialog box, choose <strong>More Details</strong></li>
                 <li>On the menu, fill out the corresponding fields</li>
+                <li>Finally, save your data by clicking the <b>Save</b> button</li>
             </ul>
-
-            {/* eventSettings={{dataSource: data,}} */}
             <ScheduleComponent ref={scheduleObj} eventSettings={{dataSource: data}}>
                 <ViewsDirective>
                   <ViewDirective option='Day' startHour='09:00' endHour='17:00'/>
@@ -69,7 +51,24 @@ export default function Scheduler() {
                 </ViewsDirective>
                 <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
             </ScheduleComponent>
-            <button onClick={() => doSomething()}>CLick me</button>
+            <div className='flex justify-center mt-4'>
+              
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button variant={"outline"} onClick={() => saveData()}>Save Data</Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Saved!</AlertDialogTitle>
+                    <AlertDialogDescription>Your schedule has been saved</AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>OK</AlertDialogCancel>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </div>
+            
         </Card>
     )
 }
