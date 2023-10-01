@@ -7,11 +7,6 @@ import { registerLicense } from '@syncfusion/ej2-base';
 
 
 const router = createBrowserRouter([
-  // {
-  //   path: '/',
-  //   element: <Intro />,
-  //   errorElement: <Error />
-  // },
   {
     path: "/",
     element: <Layout />,
@@ -41,7 +36,6 @@ const router = createBrowserRouter([
   }
 ])
 registerLicense(import.meta.env.VITE_SYNCFUSION_KEY);
-
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
