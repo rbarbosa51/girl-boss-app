@@ -19,6 +19,20 @@ export default function Comments() {
             setMessages(json)
         })()
     }, [])
+    const sendData = async () => {
+        const data = {
+            name: "Rafael"
+        }
+        console.log(JSON.stringify(data));
+        await fetch('/mongo', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            mode: 'no-cors',
+            body: data as BodyInit
+        })
+    }
     return (
         <Card className='p-4 bg-red-200/40 rounded-lg shadow-md'>
             <h1 className="text-3xl text-center drop-shadow-md">Positive Comments</h1>
@@ -35,7 +49,7 @@ export default function Comments() {
                     <Label htmlFor='message'>Write a positive messsage:</Label>
                     <Input id='message' className='w-[50%]' placeholder='write a message' />
                 </div>
-                <Button className='w-[20%] mx-auto'>Add Message</Button>
+                <Button onClick={() => {sendData()}} className='w-[20%] mx-auto'>Add Message</Button>
             </div>
             <Separator className='w-[90%] mx-auto mt-2 mb-4 bg-slate-400'/>
             <div>
@@ -48,7 +62,7 @@ export default function Comments() {
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {messages?.map((message, i) => (
+                        {messages && messages?.map((message, i) => (
                             <TableRow key={i} >
                                 <TableCell className='w-[30%]'>{message.name}</TableCell>
                                 <TableCell>{message.message}</TableCell>
