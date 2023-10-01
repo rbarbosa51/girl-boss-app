@@ -20,7 +20,8 @@ export default defineConfig({
     open: true,
     port: 3000,
     proxy: {
-      '/mongo': 'http://localhost:5000'
+        '/mongo': 'http://localhost:5000',
+        '/mongo2': 'http://localhost:5000'
     }
   }
 })

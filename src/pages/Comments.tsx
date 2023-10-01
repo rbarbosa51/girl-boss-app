@@ -10,6 +10,7 @@ interface IMessage {
     name: string
     message: string
 }
+
 export default function Comments() {
     const [messages, setMessages] = useState<IMessage[] | null>(null);
     useEffect(() => {
@@ -18,20 +19,26 @@ export default function Comments() {
             const json = await data.json()
             setMessages(json)
         })()
+        
     }, [])
-    const sendData = async () => {
-        const data = {
-            name: "Rafael"
-        }
-        console.log(JSON.stringify(data));
-        await fetch('/mongo', {
+    /*  
+    {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
             },
             mode: 'no-cors',
-            body: data as BodyInit
-        })
+            body: JSON.stringify(data)
+        }
+    */
+    const sendData = async () => {
+        // const data = {
+        //     name: "Rafael"
+        // }
+        // console.log(`JSON data before: ${JSON.stringify(data)}`);
+        const result = await fetch('/mongo2?name=Rafael' )
+        const json = await result.json();
+        console.log(json)
     }
     return (
         <Card className='p-4 bg-red-200/40 rounded-lg shadow-md'>
