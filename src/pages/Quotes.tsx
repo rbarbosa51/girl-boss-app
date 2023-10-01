@@ -18,8 +18,8 @@ export default function Quotes() {
                 <TableBody>
                     {quotes.map((quote, i) => (
                         <TableRow key={i}>
-                            <TableCell>{quote.author}</TableCell>
-                            <TableCell>{quote.quote}</TableCell>
+                            <TableCell className=''>{quote.author}</TableCell>
+                            <TableCell className=''><em>{quote.quote}</em></TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
