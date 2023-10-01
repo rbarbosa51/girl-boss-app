@@ -1,4 +1,3 @@
-import './Scheduler.css';
 import { ScheduleComponent, Day, Week, WorkWeek, Month, ViewsDirective, ViewDirective, Agenda, Inject } from '@syncfusion/ej2-react-schedule';
 import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';

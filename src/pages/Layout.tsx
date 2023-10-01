@@ -30,7 +30,7 @@ export default function Layout() {
                     <TabsTrigger className="m-2" value="home" onClick={() => navigate('/dashboard')}>Home</TabsTrigger>
                     <TabsTrigger className="m-2" value="kanban"  onClick={() => navigate('/dashboard/kanban')}>Task Board</TabsTrigger>
                     <TabsTrigger className="m-2" value="scheduler" onClick={() => navigate('/dashboard/scheduler')}>Scheduler</TabsTrigger>
-                    <TabsTrigger className="m-2" value="comments" onClick={() => navigate('/dashboard/comments')}>Comments</TabsTrigger>
+                    <TabsTrigger className="m-2" value="quotes" onClick={() => navigate('/dashboard/quotes')}>Quotes</TabsTrigger>
                     <TabsTrigger className="m-2" value="resources" onClick={() => navigate('/dashboard/resources')}>Resources</TabsTrigger>
                     <TabsTrigger className="m-2" value="intro" onClick={() => navigate('/')}>Intro</TabsTrigger>
                 </TabsList>

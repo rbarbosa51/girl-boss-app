@@ -6,4 +6,5 @@ export {default as Scheduler} from './Scheduler';
 export {default as Resources} from './Resources';
 
 export {default as Intro} from './Intro';
-export {default as Comments} from './Comments';
+//export {default as Comments} from './Comments';
+export {default as Quotes} from './Quotes'

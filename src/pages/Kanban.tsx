@@ -1,4 +1,3 @@
-import './Kanban.css';
 import { KanbanComponent, ColumnsDirective, ColumnDirective } from '@syncfusion/ej2-react-kanban';
 import {data} from '@/data/kanbanData';
 import { Card } from '@/components/ui/card';

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {Layout, Error, Dashboard, Kanban, Scheduler, Resources, Intro, Comments} from '@/pages'
+import {Layout, Error, Dashboard, Kanban, Scheduler, Resources, Intro, Quotes} from '@/pages'
 import '@/index.css'
 import { registerLicense } from '@syncfusion/ej2-base';
 
@@ -34,8 +34,8 @@ const router = createBrowserRouter([
         element: <Resources />
       },
       {
-        path: 'comments',
-        element: <Comments />
+        path: 'quotes',
+        element: <Quotes />
       }
     ]
   }
