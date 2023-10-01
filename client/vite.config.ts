@@ -19,6 +19,8 @@ export default defineConfig({
   server: {
     open: true,
     port: 3000,
-    
+    proxy: {
+      '/mongo': 'http://localhost:5000'
+    }
   }
 })
