@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { useRef } from 'react';
 import {useStorageState} from 'react-use-storage-state';
-
+import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import { Button } from '@/components/ui/button';
 
 export default function Scheduler() {
@@ -48,8 +48,24 @@ export default function Scheduler() {
                 <Inject services={[Day, Week, WorkWeek, Month, Agenda]} />
             </ScheduleComponent>
             <div className='flex justify-center mt-4'>
-            <Button variant={"outline"} onClick={() => saveData()}>Save Data</Button>
-             
+            <AlertDialog.Root>
+              <AlertDialog.Trigger asChild>
+                <Button variant={"outline"} onClick={() => saveData()}>Save Data</Button>
+              </AlertDialog.Trigger>
+              <AlertDialog.Portal>
+                <AlertDialog.Portal>
+                  <AlertDialog.Overlay className="data-[state=open]:animate-overlayShow fixed inset-0" />
+                  <AlertDialog.Content className="data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[85vh] w-[90vw] max-w-[500px] translate-x-[-50%] translate-y-[-50%] rounded-[6px] bg-white p-[25px] shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+                    <AlertDialog.Description className='text-center mb-4 text-slate-400'>Data has been saved!</AlertDialog.Description>
+                    <div className="flex justify-center gap-[25px]">
+                    <AlertDialog.Cancel asChild>
+                      <button className="inline-flex h-[35px] text-slate-600 items-center justify-center rounded-[4px] px-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]">OK</button>
+                    </AlertDialog.Cancel>
+                    </div>
+                  </AlertDialog.Content>
+                </AlertDialog.Portal>
+              </AlertDialog.Portal>
+            </AlertDialog.Root> 
             </div>
             
         </Card>
