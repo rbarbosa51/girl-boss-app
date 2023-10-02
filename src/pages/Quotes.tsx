@@ -20,7 +20,7 @@ export default function Quotes() {
 
   useEffect(() => {
     (async () => {
-      const data = await fetch("mongo");
+      const data = await fetch("/mongo");
       const json = await data.json();
       setQuotesData(json);
     })();
