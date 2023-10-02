@@ -1,10 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import {Layout, Error, Dashboard, Kanban, Scheduler, Resources, Quotes} from '@/pages'
-import '@/index.css'
-import { registerLicense } from '@syncfusion/ej2-base';
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  Layout,
+  Error,
+  Dashboard,
+  Kanban,
+  Scheduler,
+  Resources,
+  Quotes,
+} from "@/pages";
+import "@/index.css";
+import { registerLicense } from "@syncfusion/ej2-base";
 
 const router = createBrowserRouter([
   {
@@ -14,31 +21,31 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Dashboard /> 
+        element: <Dashboard />,
       },
       {
-        path: 'kanban',
-        element: <Kanban />
+        path: "kanban",
+        element: <Kanban />,
       },
       {
-        path: 'scheduler',
-        element: <Scheduler />
+        path: "scheduler",
+        element: <Scheduler />,
       },
       {
-        path: 'resources',
-        element: <Resources />
+        path: "resources",
+        element: <Resources />,
       },
       {
-        path: 'quotes',
-        element: <Quotes />
-      }
-    ]
-  }
-])
+        path: "quotes",
+        element: <Quotes />,
+      },
+    ],
+  },
+]);
 registerLicense(import.meta.env.VITE_SYNCFUSION_KEY);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>,
-)
+);

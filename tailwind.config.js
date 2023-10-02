@@ -2,25 +2,24 @@
 module.exports = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-	],
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   theme: {
-    
     extend: {
       backgroundImage: {
-        'lightPattern': "url('/heartLight.svg')",
-        "darkPattern": "url('/heartDark.svg')"
+        lightPattern: "url('/heartLight.svg')",
+        darkPattern: "url('/heartDark.svg')",
       },
       fontFamily: {
-        "Baskervville": ['Baskervville', 'serif']
+        Baskervville: ["Baskervville", "serif"],
       },
       colors: {
         pinkPrimary: "#ebadad",
-        lightPink: '#fff0f0',
-        darkPink: '#2b1a1a',
+        lightPink: "#fff0f0",
+        darkPink: "#2b1a1a",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -77,4 +76,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
