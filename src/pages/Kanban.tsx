@@ -36,9 +36,10 @@ function Kanban() {
       </p>
       <Separator className='w-[90%] mx-auto mt-2 mb-4 bg-slate-400' />
       <ul className='w-[50%] mx-auto list-disc my-2 text-center'>
-        <li><strong>Drag and drop</strong> tasks from column to columns.</li>
-        <li><strong>Double click</strong> a task to edit it.</li>
-        <li>On the dialog box, write your task under summary and then click <strong>save</strong>.</li>
+        <li><strong className='underline'>Drag and drop</strong> tasks from column to columns.</li>
+        <li><strong className='underline'>Double click</strong> a task to edit it.</li>
+        <li>On the dialog box, write your task under summary and then click <strong className='underline'>Save</strong>.</li>
+        <li>Once you are finished editing, click on the <strong className='underline'>Save Data</strong></li>
       </ul>
       <KanbanComponent id='kanban' keyField='Status' dataSource={saved} cardSettings={{contentField: "Summary", headerField: "Id"}}>
         <ColumnsDirective>

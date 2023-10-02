@@ -19,8 +19,6 @@ export default function Scheduler() {
     const scheduleObj = useRef<ScheduleComponent>(null)
     const saveData = () => {
       scheduleObj.current?.refresh()
-      //console.log(initData);
-      //console.log(data);
       setData([...data])
     }
     
@@ -32,10 +30,10 @@ export default function Scheduler() {
             </p>
             <Separator className='w-[90%] mx-auto mt-2 mb-4 bg-slate-400' />
             <ul className='w-[50%] mx-auto list-disc my-2 text-center'>
-                <li><strong>Click</strong> on a timeframe (Day, Week, Month). Then <strong>Click</strong> on a time block</li>
-                <li>On the new dialog box, choose <strong>More Details</strong></li>
+                <li><strong className='underline'>Click</strong> on a timeframe (Day, Week, Month). Then <strong>Click</strong> on a time block</li>
+                <li>On the new dialog box, choose <strong className='underline'>More Details</strong></li>
                 <li>On the menu, fill out the corresponding fields</li>
-                <li>Finally, save your data by clicking the <b>Save</b> button</li>
+                <li>Finally, save your data by clicking the <strong className='underline'>Save Data</strong> button</li>
             </ul>
             <ScheduleComponent ref={scheduleObj} eventSettings={{dataSource: data}}>
                 <ViewsDirective>
