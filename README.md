@@ -4,8 +4,7 @@
 
 ## Description
 
- This is the Girl Boss App, a SPA MERN site. It provides a set of tools for organizational purposes. It includes a KanBan board, a Scheduler, and Quotes received from MongoDB. Please enjoy
-
+This is the Girl Boss App, a SPA MERN site. It provides a set of tools for organizational purposes. It includes a KanBan board, a Scheduler, and Quotes received from MongoDB. Please enjoy
 
 ## Table of Contents
 
@@ -59,6 +58,3 @@ Submit a GitHub Issue
 Github User Name: rbarbosa51
 
 Github Profile URL: https://github.com/rbarbosa51
-
-
-

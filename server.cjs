@@ -1,7 +1,7 @@
 const express = require("express");
 const { PrismaClient } = require("@prisma/client");
 const path = require("path");
-const compression = require('compression');
+const compression = require("compression");
 
 const PORT = process.env.PORT || 5000;
 const app = express();

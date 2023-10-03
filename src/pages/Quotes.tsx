@@ -7,22 +7,22 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { quotes } from "@/data/quotesData";
 import { Card } from "@/components/ui/card";
 import { useState, useEffect } from "react";
+import type { IQuotes } from "@/data/quotesInterface";
 
-interface IQuotes {
-  id: string;
-  author: string;
-  quote: string;
-}
 export default function Quotes() {
   const [quotesData, setQuotesData] = useState<IQuotes[] | null>(null);
 
   useEffect(() => {
+    setQuotesData([...quotes]);
     (async () => {
-      const data = await fetch("/mongo");
-      const json = await data.json();
-      setQuotesData(json);
+      try {
+        const data = await fetch("/mongo");
+        const json = await data.json();
+        setQuotesData(json);
+      } catch (e) {}
     })();
   }, []);
   return (
