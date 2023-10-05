@@ -6,7 +6,7 @@
   "main": "server.cjs",
   "scripts": {
     "dev": "vite",
-    "build": "npm i; tsc && vite build",
+    "build": "npm i && npx prisma generate && tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "start": "node server.cjs"
