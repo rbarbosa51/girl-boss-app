@@ -7,24 +7,32 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { quotes } from "@/data/quotesData";
+//import { quotes } from "@/data/quotesData";
 import { Card } from "@/components/ui/card";
-import { useState, useEffect } from "react";
+//import { useState, useEffect } from "react";
 import type { IQuotes } from "@/data/quotesInterface";
 import axios from 'axios'
-export default function Quotes() {
-  const [quotesData, setQuotesData] = useState<IQuotes[] | null>(null);
+import { useQuery } from "@tanstack/react-query";
 
-  useEffect(() => {
-    setQuotesData([...quotes]);
-    (async () => {
-      try {
-        const result = await axios.get("/mongo");
-        const data: IQuotes[] = result.data;
-        setQuotesData(data);
-      } catch (e) {}
-    })();
-  }, []);
+export default function Quotes() {
+  //const [quotesData, setQuotesData] = useState<IQuotes[] | null>(null);
+  const {data, isLoading, error} = useQuery({
+    queryKey: ['quotes'],
+    queryFn: async () => {
+      const res = await axios.get("/mongo");
+      return res.data;
+    }
+  })
+  // useEffect(() => {
+  //   setQuotesData([...quotes]);
+  //   (async () => {
+  //     try {
+  //       const result = await axios.get("/mongo");
+  //       const data: IQuotes[] = result.data;
+  //       setQuotesData(data);
+  //     } catch (e) {}
+  //   })();
+  // }, []);
   return (
     <Card className="p-4 bg-red-200/40 rounded-lg shadow-md">
       <h1 className="text-3xl text-center drop-shadow-md">
@@ -42,7 +50,19 @@ export default function Quotes() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {quotesData &&
+          {isLoading ? 
+            (<TableRow className="">
+                <TableCell>Loading Data...</TableCell>
+              </TableRow>) :
+            (data.map((quote: IQuotes, i:number) => (
+              <TableRow key={i}>
+                <TableCell>{quote.author}</TableCell>
+                <TableCell><em>{quote.quote}</em></TableCell>
+              </TableRow>
+            )))
+          
+          }
+          {/* {quotesData &&
             quotesData.map((quote, i) => (
               <TableRow key={i}>
                 <TableCell className="">{quote.author}</TableCell>
@@ -50,7 +70,7 @@ export default function Quotes() {
                   <em>{quote.quote}</em>
                 </TableCell>
               </TableRow>
-            ))}
+            ))} */}
         </TableBody>
       </Table>
     </Card>
