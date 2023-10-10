@@ -11,7 +11,7 @@ import { quotes } from "@/data/quotesData";
 import { Card } from "@/components/ui/card";
 import { useState, useEffect } from "react";
 import type { IQuotes } from "@/data/quotesInterface";
-
+import axios from 'axios'
 export default function Quotes() {
   const [quotesData, setQuotesData] = useState<IQuotes[] | null>(null);
 
@@ -19,9 +19,9 @@ export default function Quotes() {
     setQuotesData([...quotes]);
     (async () => {
       try {
-        const data = await fetch("/mongo");
-        const json = await data.json();
-        setQuotesData(json);
+        const result = await axios.get("/mongo");
+        const data: IQuotes[] = result.data;
+        setQuotesData(data);
       } catch (e) {}
     })();
   }, []);

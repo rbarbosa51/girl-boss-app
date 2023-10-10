@@ -11,10 +11,11 @@ const prisma = new PrismaClient();
 app.use(compression());
 
 app.use(express.static(path.join(__dirname, "dist")));
-app.get("/mongo", async (req, res) => {
-  const quotes = await prisma.quotes.findMany();
-  res.json(quotes);
-});
+app.route('/mongo')
+  .get(async (req, res) => {
+    const quotes = await prisma.quotes.findMany();
+    res.json(quotes);
+  });
 app.get("*", async (req, res) => {
   res.sendFile(path.join(__dirname, "dist/index.html"));
 });
