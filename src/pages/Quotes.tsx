@@ -74,5 +74,6 @@ export default function Quotes() {
         </TableBody>
       </Table>
     </Card>
+   
   );
 }
