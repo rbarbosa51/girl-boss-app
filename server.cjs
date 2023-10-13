@@ -2,17 +2,16 @@ const express = require("express");
 const { PrismaClient } = require("@prisma/client");
 const path = require("path");
 const compression = require("compression");
-
+const cors = require('cors');
 const PORT = process.env.PORT;
 const app = express();
 //Prisma
 const prisma = new PrismaClient();
 
 app.use(compression());
-
+app.use(cors())
 app.use(express.static(path.join(__dirname, "dist")));
-app.route('/mongo')
-  .get(async (req, res) => {
+app.get('/mongo', async (req, res) => {
     const quotes = await prisma.quotes.findMany();
     res.json(quotes);
   });
