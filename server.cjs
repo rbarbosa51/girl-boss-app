@@ -6,7 +6,17 @@ const cors = require('cors');
 const PORT = process.env.PORT;
 const app = express();
 //Prisma
-const prisma = new PrismaClient();
+//const prisma = new PrismaClient();
+let prisma = null;
+//console.log(process.env.NODE_ENV)
+if (process.env.NODE_ENV === 'product') {
+  prisma = new PrismaClient();
+} else {
+  if (!global.prisma) {
+    global.prisma = new PrismaClient();
+  }
+  prisma = global.prisma
+}
 
 app.use(compression());
 app.use(cors())
