@@ -11,12 +11,11 @@ import { quotes } from "@/data/quotesData";
 import { Card } from "@/components/ui/card";
 import { useState, useEffect } from "react";
 import type { IQuotes } from "@/data/quotesInterface";
-import axios from 'axios'
-
+import axios from "axios";
 
 export default function Quotes() {
   const [quotesData, setQuotesData] = useState<IQuotes[] | null>(null);
-  
+
   useEffect(() => {
     setQuotesData([...quotes]);
     (async () => {
@@ -44,7 +43,6 @@ export default function Quotes() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          
           {quotesData &&
             quotesData.map((quote, i) => (
               <TableRow key={i}>
@@ -57,6 +55,5 @@ export default function Quotes() {
         </TableBody>
       </Table>
     </Card>
-   
   );
 }

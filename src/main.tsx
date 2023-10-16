@@ -13,7 +13,6 @@ import {
 import "@/index.css";
 import { registerLicense } from "@syncfusion/ej2-base";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
