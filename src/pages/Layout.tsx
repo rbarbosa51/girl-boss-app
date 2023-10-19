@@ -8,7 +8,7 @@ export default function Layout() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-lightPink dark:bg-darkPink opacity-80 px-4 py-2">
+    <div className="min-h-screen heropattern-morphingdiamonds-lightPink dark:heropattern-texture-lightPink dark:bg-darkPink opacity-80 px-4 py-2">
       <Card className="flex flex-col backdrop-blur-sm bg-white/20 dark:bg-black/40 drop-shadow-xl mx-8">
         <div className="flex justify-between align-middle p-2">
           <h1 className="text-center text-5xl text-[#ebadad] drop-shadow-md dark:text-[#f5e4e4]">

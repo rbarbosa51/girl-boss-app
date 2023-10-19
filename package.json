@@ -41,7 +41,8 @@
     "react-router-dom": "^6.16.0",
     "react-use-storage-state": "^1.0.6",
     "tailwind-merge": "^1.14.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-hero-patterns": "^0.1.2"
   },
   "devDependencies": {
     "@types/node": "^20.8.0",
