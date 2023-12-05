@@ -57,8 +57,8 @@ export default function Dashboard() {
         <div className="mt-4 flex justify-start">
           <div className="w-[50%]">View my work</div>
           <div className="underline">
-            <a target="_blank" href="https://github.com/rbarbosa51">
-              GitHub
+            <a target="_blank" href="https://rafael-barbosa.com">
+              Portfolio
             </a>
           </div>
         </div>
